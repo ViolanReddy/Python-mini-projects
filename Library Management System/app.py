@@ -39,3 +39,65 @@ class Member:
             print(f"{self.name} has returned the book {book}")
         else:
             print(f"{self.name} does not have {book}")
+
+class Library:
+    def __init__(self):
+        self.books = []
+        self.members = []
+
+    def add_book(self, book):
+        if book not in self.books:
+            self.books.append(book)
+            print(f"{book.title} is in the library.")
+
+    def add_member(self, member):
+        if member not in self.members:
+            self.members.append(member)
+            print(f"{member.name} is a member at the library.")
+
+    def find_book(self, title):
+        for book in self.books:
+            if book.title == title:
+                return book
+        return None
+
+    def find_member(self, member_id):
+        for member in self.members:
+            if member.member_id == member_id:
+                return member
+        return None
+
+    def borrow_book(self, member_id, title):
+        member = self.find_member(member_id)
+
+        book = self.find_book(title)
+
+        if member is None:
+            print(f"{member_id} does not exists.")
+            return
+
+        if book is None:
+            print(f"{title} does not exists.")
+            return
+
+        member.borrow_book(book)
+
+    def return_book(self, member_id, title):
+        member = self.find_member(member_id)
+
+        book = self.find_book(title)
+
+        if member is None:
+            print(f"{member_id} does not exists.")
+            return
+
+        if book is None:
+            print(f"{title} does not exists.")
+            return
+
+        member.return_book(book)
+
+
+
+
+
