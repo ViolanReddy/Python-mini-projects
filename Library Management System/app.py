@@ -97,7 +97,46 @@ class Library:
 
         member.return_book(book)
 
+def show_menu():
+    print("\n==== Library Management System ====")
+    print("1. Add Book")
+    print("2. Add Member")
+    print("3. View Books")
+    print("4. View Members")
+    print("5. Borrow Book")
+    print("6. Return Book")
+    print("7. Exit")
 
+    library = Library()
 
+while True:
+    show_menu()
+    library = Library()
 
+    choice = input("Enter choice: ")
 
+    if choice == "1":
+        title = input("Enter Book Title: ")
+        author = input("Enter Author: ")
+        isbn = input("Enter ISBN: ")
+
+        book = Book(title, author, isbn)
+
+        library.add_book(book)
+
+    elif choice == "2":
+        name = input("Enter Member Name: ")
+        member_id = input("Enter Member ID: ")
+
+        member = Member(name, member_id)
+
+        library.add_member(member)
+
+    elif choice == "3":
+        print("\n==== BOOKS ====")
+        for book in library.books:
+            print(f"Title: {book.title}")
+            print(f"Author: {book.auhtor}")
+            print(f"ISBN: {book.isbn}")
+            print(f"Available: {book.is_available}")
+            print()
