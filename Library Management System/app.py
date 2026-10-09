@@ -140,3 +140,27 @@ while True:
             print(f"ISBN: {book.isbn}")
             print(f"Available: {book.is_available}")
             print()
+
+    elif choice == "4":
+        print("\n==== LIBRARY MEMBERS ====")
+
+        if not library.members:
+            print("No members registered.")
+        else:
+            for member in library.members:
+                print(f"Member Name: {member.name}")
+                print(f"Member ID: {member.member_id}")
+
+            if member.borrowed_books:
+                for book in member.borrowed_books:
+                    print(f"Borrowed Books: {book.title}")
+            else:
+                print(f"Borrowed Books: None")
+
+            print()
+
+    elif choice == "5":
+        member_id = input("Enter member ID: ")
+        title = input("Enter Book Title: ")
+
+        library.borrow_book(member_id, title)
