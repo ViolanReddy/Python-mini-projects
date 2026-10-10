@@ -107,7 +107,7 @@ def show_menu():
     print("6. Return Book")
     print("7. Exit")
 
-    library = Library()
+    
 
 while True:
     show_menu()
@@ -136,7 +136,7 @@ while True:
         print("\n==== BOOKS ====")
         for book in library.books:
             print(f"Title: {book.title}")
-            print(f"Author: {book.auhtor}")
+            print(f"Author: {book.author}")
             print(f"ISBN: {book.isbn}")
             print(f"Available: {book.is_available}")
             print()
@@ -164,3 +164,13 @@ while True:
         title = input("Enter Book Title: ")
 
         library.borrow_book(member_id, title)
+
+    elif choice == "6":
+        member_id = input("Enter Member ID: ")
+        title = input("Enter Book Title: ")
+
+        library.return_book(member_id, title)
+
+    elif choice == "7":
+        print("Thank you for using the Library Management System. GoodBye!")
+        break
