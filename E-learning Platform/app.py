@@ -49,8 +49,21 @@ class User:
 class Student(User):
     def __init__(self, name, email):
         super().__init__(name, email)
-        self.enrolled_course = []
+        self.enrolled_courses = []
 
     def enrol(self, course):
-        if course in self.enrolled_course:
-            print("You are already enrolled in {course.title}!")
+        if course in self.enrolled_courses:
+            print("You are already enrolled in {course.title}.")
+            return
+
+        self.enrolled_courses.append(course)
+        print(f"Successfully enrolled in {course.title}.")
+
+    def display_enrolled_courses(self):
+        if not self.enrolled_courses:
+            print("You are not enrolled in any courses")
+
+        print(f"Courses enrolled by: {self.name}")
+
+        for index, course in enumerate(self.enrolled_courses, start=1):
+            print(f"{index}. {course.title}")
