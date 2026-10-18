@@ -25,6 +25,9 @@ class Course:
         print(f"Instructor: {self.instructor}")
         print(f"Number of Lessons: {len(self.lessons)}")
 
+    def has_lesson(self, lesson):
+        return lesson in self.lessons
+
 
 class Lesson:
     def __init__(self, title, description, duration):
@@ -50,6 +53,7 @@ class Student(User):
     def __init__(self, name, email):
         super().__init__(name, email)
         self.enrolled_courses = []
+        self.completed_lessons = []
 
     def enrol(self, course):
         if course in self.enrolled_courses:
@@ -67,3 +71,58 @@ class Student(User):
 
         for index, course in enumerate(self.enrolled_courses, start=1):
             print(f"{index}. {course.title}")
+
+    def complete_lesson(self, lesson):
+        enrolled = False
+
+        for course in self.enrolled_courses:
+            if course.has_lesson(lesson):
+                enrolled = True
+                break
+
+        if not enrolled:
+            print("You must enrol in this course before completing the lesson.")
+            return
+        
+        if lesson in self.completed_lessons:
+            print(f"You have already completed {lesson.title}")
+            return
+        
+        self.completed_lessons.append(lesson)
+
+        print(f"Lesson {lesson.title} completed successfully.")
+
+    def display_progress(self, course):
+        if course not in self.enrolled_courses:
+            print("You are not enrolled in this course")
+            return
+
+        total_lessons = len(course.lessons)
+
+        if total_lessons == 0:
+            print("this course has no lessons yet")
+            return
+
+        completed = 0
+
+        for lesson in course.lessons:
+            if lesson in self.completed_lessons:
+                completed += 1
+
+        percentage = (completed / total_lessons) * 100
+
+        print(f"Student: {self.name}")
+        print(f"Course: {course.title}")
+        print(f"Completed lessons: {completed}/{total_lessons}")
+        print(f"Progress: {percentage:.2f}%")
+
+        
+course1 = Course("DSA",
+                  "Data structures and algorithms in Python",
+                  "Alex")
+
+sarah = Student("sarah", "sarah@example.com")
+sarah.enrol(course1)
+sarah.display_info()
+sarah.display_enrolled_courses()
+sarah.enrol(course1)
