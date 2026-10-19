@@ -116,13 +116,76 @@ class Student(User):
         print(f"Completed lessons: {completed}/{total_lessons}")
         print(f"Progress: {percentage:.2f}%")
 
+class ElearningPlatform:
+    def __init__(self, name):
+        self.name = name
+        self.students = []
+        self.courses = []
+
+    def display_platform_info(self):
+        print(f"Platform: {self.name}")
+        print(f"Total Students: {len(self.students)}")
+        print(f"Total Courses: {len(self.courses)}")
+
+    def add_course(self, course):
+        if course in self.courses:
+            print(f"Course '{course.title}' already exists.")
+            return
         
-course1 = Course("DSA",
-                  "Data structures and algorithms in Python",
+        self.courses.append(course)
+        print(f"Course '{course.title}' successfully added to Platform.")
+
+    def register_student(self, student):
+        if student in self.students:
+            print(f"{student.name} is already registered.")
+            return
+
+        self.students.append(student)
+        print(f"Student '{student.name}' registered successfully.")
+
+    def display_courses(self):
+        if not self.courses:
+            print("No courses are currently available.")
+            return
+
+        print(f"\nCourses available in {self.name}: ")
+
+        for index, course in enumerate(self.courses, start=1):
+            print(f"{index}. {course.title}")
+            print(f"    Instructor: {course.instructor}")
+            print(f"    Description: {course.description}")
+            print()
+
+lesson1 = Lesson("Introduction to Python",
+                 "learn the basics",
+                 "50")
+
+lesson2 = Lesson(
+    "DSA",
+    "Python data structures",
+    "45"
+)
+
+lesson3 = Lesson(
+    "Information systems",
+    "learning basic system design",
+    "50"
+)
+
+course1 = Course("Python Fundamentals",
+                  "Learning Python Programming",
                   "Alex")
 
-sarah = Student("sarah", "sarah@example.com")
-sarah.enrol(course1)
-sarah.display_info()
-sarah.display_enrolled_courses()
-sarah.enrol(course1)
+course1.add_lesson(lesson1)
+course1.add_lesson(lesson2)
+course1.add_lesson(lesson3)
+
+valorie = Student("Valorie", "valorieR@icloud.com")
+
+valorie.enrol(course1)
+
+print(f"Initial Progress: {valorie.display_progress(course1)}")
+
+print(f"Completing first lesson: {valorie.complete_lesson(lesson1)}")
+
+print(f"Updated progress: {valorie.display_progress(course1)}")
