@@ -156,36 +156,101 @@ class ElearningPlatform:
             print(f"    Description: {course.description}")
             print()
 
-lesson1 = Lesson("Introduction to Python",
-                 "learn the basics",
-                 "50")
+"""Testing the Learning Hub"""
+platform = ElearningPlatform("LearnHub")
 
-lesson2 = Lesson(
-    "DSA",
-    "Python data structures",
-    "45"
+#Create a course
+python_course = Course(
+    "Python Fundamentals",
+    "Learning Python fundamentals",
+    "Alexis Rayne"
 )
 
-lesson3 = Lesson(
-    "Information systems",
-    "learning basic system design",
-    "50"
-)
+#Create lessons
+lesson1 = Lesson("Variables", "learn about variables", 35)
+lesson2 = Lesson("Data Types", "Understand python data types", 25)
+lesson3 = Lesson("Loops", "Learn for loops and while loops", 35)
 
-course1 = Course("Python Fundamentals",
-                  "Learning Python Programming",
-                  "Alex")
+#Add lessons to the course
+python_course.add_lesson(lesson1)
+python_course.add_lesson(lesson2)
+python_course.add_lesson(lesson3)
 
-course1.add_lesson(lesson1)
-course1.add_lesson(lesson2)
-course1.add_lesson(lesson3)
+#Add the course to the platform
+platform.add_course(python_course)
 
-valorie = Student("Valorie", "valorieR@icloud.com")
+def display_menu():
+    print("\n===== LearnHub =====")
+    print("1. View available courses")
+    print("2. Register as a student")
+    print("3. View registered students")
+    print("4. Enrol in a course")
+    print("5. View my enrolled courses")
+    print("6. View course progress")
+    print("7. Exit")
 
-valorie.enrol(course1)
+    while True:
+        display_menu()
 
-print(f"Initial Progress: {valorie.display_progress(course1)}")
+        choice = input("Enter your choice: ")
 
-print(f"Completing first lesson: {valorie.complete_lesson(lesson1)}")
+        if choice == "1":
+            platform.display_courses()
 
-print(f"Updated progress: {valorie.display_progress(course1)}")
+        elif choice == "2":
+            name = input("Enter your name: ")
+            email = input("Enter your email: ")
+
+            student = Student(name, email)
+
+            platform.register_student(student)
+
+        elif choice == "3":
+            platform.display_students()
+
+        elif choice == "4":
+            if not platform.students():
+                print("No students registered yet.")
+                continue
+
+            if not platform.courses():
+                print("No courses available.")
+                continue
+
+            email = input("Enter students email: ")
+
+            student = None
+
+            for registered_student in platform.students:
+                if registered_student.email == "email":
+                    student = registered_student
+                    break
+
+            if student == None:
+                print("Student not found.")
+                continue
+
+            platform.display_courses()
+
+            course_title = input("Enter the course title: ")
+
+            course = None
+
+            for available_course in platform.courses:
+                if available_course.title.lower() == course_title.lower():
+                    course = available_course
+                    break
+
+            if course is None:
+                print("Course not found.")
+                continue
+
+            student.enrol(course)
+
+        elif choice == "0":
+            print("Thank you for using LearnHub!")
+            break
+
+        else:
+            print("Invalid choice. Please try again.")
+                   
