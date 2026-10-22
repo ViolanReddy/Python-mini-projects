@@ -209,7 +209,7 @@ def display_menu():
             platform.display_students()
 
         elif choice == "4":
-            if not platform.students():
+            if not platform.students:
                 print("No students registered yet.")
                 continue
 
@@ -222,11 +222,11 @@ def display_menu():
             student = None
 
             for registered_student in platform.students:
-                if registered_student.email == "email":
+                if registered_student.email == email:
                     student = registered_student
                     break
 
-            if student == None:
+            if student is None:
                 print("Student not found.")
                 continue
 
@@ -246,7 +246,21 @@ def display_menu():
                 continue
 
             student.enrol(course)
+        elif choice == "5":
+            email = input("Enter your email: ")
 
+            student = None
+
+            for registered_student in platform.students:
+                if registered_student.email == email:
+                    student = registered_student
+                    break
+
+            if student is None:
+                print("Student not found.")
+                continue
+
+            student.display_enrolled_courses()
         elif choice == "0":
             print("Thank you for using LearnHub!")
             break
