@@ -187,7 +187,8 @@ def display_menu():
     print("4. Enrol in a course")
     print("5. View my enrolled courses")
     print("6. View course progress")
-    print("7. Exit")
+    print("7. Complete a lesson")
+    print("8. Exit")
 
     while True:
         display_menu()
@@ -261,7 +262,72 @@ def display_menu():
                 continue
 
             student.display_enrolled_courses()
-        elif choice == "0":
+
+        elif choice == "6":
+            email = input("Enter student email: ")
+
+            student = None
+
+            for registered_student in platform.students:
+                if registered_student.email == email:
+                    student = registered_student
+                    break
+
+            if student is None:
+                print("Student not found.")
+                continue
+
+            student.display_enrolled_courses()
+
+        elif choice == "7":
+            email = input("Enter student email: ")
+
+            student = None
+
+            for registered_student in platform.students:
+                if registered_student.email == email:
+                    student = registered_student
+                    break
+
+            if student is None:
+                print("Student not found")
+                continue
+
+            student.display_enrolled_courses()
+
+            course_title = input("Enter the course title: ")
+            course = None
+
+            for enrolled_course in student.enrolled_courses:
+                if enrolled_course.title.lower() == course_title.lower():
+                    course = enrolled_course
+                    break
+
+            if course is None:
+                print("You are not enrolled in that course.")
+                continue
+
+            course.display_lessons()
+
+            if not course.lessons:
+                continue
+
+            lesson_title = input("Enter the lesson title: ")
+
+            lesson = None
+
+            for available_lesson in course.lessons:
+                if available_lesson.title.lower() == lesson_title.lower():
+                    lesson = available_lesson
+                    break
+
+            if lesson is None:
+                print("Lesson not found.")
+                continue
+
+            student.complete_lesson(lesson)            
+        
+        elif choice == "8":
             print("Thank you for using LearnHub!")
             break
 
