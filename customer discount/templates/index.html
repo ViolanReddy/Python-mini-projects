@@ -46,5 +46,40 @@
 
         <button type="submit">Calculate Wages</button>
     </form>
+
+    {% if net_pay is defined %}
+        <h2>Employee Payslip</h2>
+
+        <p><strong>Employee Name:</strong>{{ name }}</p>
+
+        <p><strong>Employee Gender:</strong>{{ gender | captalize }}</p>
+
+        <p><strong>Employee Type:</strong>
+            {%if employee_type == "full_time" %}
+                Full Time
+            {% else %}
+                Part Time
+            {% endif %}
+        </p>
+
+         <p><strong>Hours Worked:</strong> {{ hours_worked }}</p>
+
+        <hr>
+
+        <p><strong>Normal Pay:</strong> R{{ "%.2f"|format(normal_pay) }}</p>
+
+        <p><strong>Overtime Pay:</strong> R{{ "%.2f"|format(overtime_pay) }}</p>
+
+        <p><strong>Gross Pay:</strong> R{{ "%.2f"|format(gross_pay) }}</p>
+
+        <p><strong>Tax Amount:</strong> R{{ "%.2f"|format(tax) }}</p>
+
+        <p><strong>Further Deduction:</strong> R{{ "%.2f"|format(deduction) }}</p>
+
+        <hr>
+
+        <h3>Net Pay: R{{ "%.2f"|format(net_pay) }}</h3>
+
+    {% endif %}
 </body>
 </html>
