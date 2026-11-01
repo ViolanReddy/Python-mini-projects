@@ -8,6 +8,11 @@
 </head>
 <body>
     <h1>Employee Wage Calculator</h1>
+
+    {% if error %}
+        <p class="error-message">{{ error }}</p>
+    {% endif %}
+
     <p>Welcome to the employee wage calculator.</p>
 
     <form action="/calculate" method="POST">
@@ -46,6 +51,8 @@
         <br><br>
 
         <button type="submit">Calculate Wages</button>
+        <br>
+        <button type="reset">Clear Form</button>
     </form>
 
     {% if net_pay is defined %}
