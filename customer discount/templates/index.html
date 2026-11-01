@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Payroll Calculator</title>
 </head>
 <body>
@@ -52,7 +53,7 @@
 
         <p><strong>Employee Name:</strong>{{ name }}</p>
 
-        <p><strong>Employee Gender:</strong>{{ gender | captalize }}</p>
+        <p><strong>Employee Gender:</strong>{{ gender | capitalize }}</p>
 
         <p><strong>Employee Type:</strong>
             {%if employee_type == "full_time" %}
