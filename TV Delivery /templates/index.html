@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Delivery</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Local TV Shop</h1>
+        <h2>Delivery Calculator</h2>
+
+        <form action="/calculate" method="POST">
+            <label for="tv_type">TV Type: </label>
+            <select name="tv_type" id="tv_type">
+                <option value="High Definition TV">High Definition TV</option>
+                <option value="Flatscreen TV">Flatscreen TV</option>
+            </select>
+
+            <label for="tv_price">TV Price:</label>
+            <input type="number" id="price" name="price"
+                min="0.01" step="0.01" required>
+            
+            <label for="quantity">Number of TV Sets:</label>
+            <input type="number" id="quantity" name="quantity"
+                   min="1" max="1" value="1" required>
+
+            <label for="address">Delivery Address:</label>
+            <input type="text" id="address" name="address"
+                   placeholder="Enter delivery address" required>
+
+            <label for="kilometers">Delivery Distance (km):</label>
+            <input type="number" id="kilometers" name="kilometers"
+                   min="0" step="0.1" required>
+
+            <button type="submit">Calculate Amount Payable</button>
+        </form>
+
+    </div>
+</body>
+</html>

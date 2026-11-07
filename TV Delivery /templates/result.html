@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Calculation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Delivery summary</h1>
+
+        <h2>Customer Order Details</h2>
+
+        <div class="result-details">
+            <p>
+                <strong>TV Type:</strong>
+                {{ tv_type }}
+            </p>
+
+            <p>
+                <strong>TV price:</strong>
+                R{{ "%.2f"|format(price) }}
+            </p>
+
+            <p>
+                <strong>Number of TV's:</strong>
+                {{ quantity }}
+            </p>
+
+            <p>
+                <strong>Delivery Address:</strong>
+                {{ address }}
+            </p>
+
+            <p>
+                <strong>Delivery Distance:</strong>
+                {{ kilometers }}Km
+            </p>
+
+            <p>
+                <strong>Delivery Fee:</strong>
+                R{{ "%.2F|format(price)" }}
+            </p>
+
+            <hr>
+
+            <p>
+                <strong>Total Payable:</strong>
+                {{ "%.2f|format(total)" }}
+            </p>
+        </div>
+
+        <a href="/" class="back-btn">Calculate Another Delivery</a>
+    </div>
+</body>
+</html>
