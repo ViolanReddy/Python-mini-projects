@@ -21,12 +21,12 @@ def calculate():
     total = (price * quantity) + delivery_fee
 
     return render_template(
-        "index.html",
+        "result.html",
         tv_type=tv_type,
         price=price,
         quantity=quantity,
         address=address,
-        kilometeres=kilometers,
+        kilometers=kilometers,
         delivery_fee=delivery_fee,
         total=total
     )

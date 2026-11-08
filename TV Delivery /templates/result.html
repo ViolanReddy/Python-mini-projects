@@ -35,19 +35,19 @@
 
             <p>
                 <strong>Delivery Distance:</strong>
-                {{ kilometers }}Km
+                {{ kilometers }} Km
             </p>
 
             <p>
                 <strong>Delivery Fee:</strong>
-                R{{ "%.2F|format(price)" }}
+                R{{ "%.2F"|format(delivery_fee) }}
             </p>
 
             <hr>
 
             <p>
                 <strong>Total Payable:</strong>
-                {{ "%.2f|format(total)" }}
+                {{ "%.2f"|format(total) }}
             </p>
         </div>
 
