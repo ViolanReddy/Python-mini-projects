@@ -1,0 +1,110 @@
+
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
+    margin: 0;
+    padding: 0;
+    color: #1e293b;
+}
+
+/* Main container */
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    color: #1e3a8a;
+}
+
+h2 {
+    text-align: center;
+    color: #334155;
+}
+
+h3 {
+    color: #1e40af;
+}
+
+/* Form labels */
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Input fields and dropdown */
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+/* Focus effect */
+input:focus, select:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 20px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Button hover */
+button:hover {
+    background-color: #1d4ed8;
+}
+
+/* Error messages */
+.error {
+    color: #dc2626;
+    background-color: #fee2e2;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+/* Parking slip */
+.slip-details {
+    padding: 15px;
+    background-color: #f8fafc;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.total-cost {
+    text-align: center;
+    color: #15803d;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        width: 85%;
+        margin: 25px auto;
+        padding: 20px;
+    }
+}

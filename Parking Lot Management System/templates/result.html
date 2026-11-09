@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Slip</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Parking Lot Management System</h1>
+
+    <h2>Parking Slip</h2>
+
+    <hr>
+
+    <h3>Vehicle Details</h3>
+
+    <p>
+        <strong>Vehicle Registration:</strong>
+        {{ registration }}
+    </p>
+
+    <p>
+        <strong>Parking Type:</strong>
+        {{ parking_type }}
+    </p>
+
+    <p>
+        <strong>Parking Duration:</strong>
+        {{ "%2.f"|format(duration_hours) }} hours
+    </p>
+
+    <hr>
+
+    <h3>Parking Payment</h3>
+
+    <p>
+        <strong>Parking Cost:</strong>
+        R{{ "%2.f"|format(parking_cost) }}
+
+    </p>
+
+    <hr>
+
+    <p>Thank You for parking with us.</p>
+
+    <a href="/">
+        <button type="button">Back Home</button>
+    </a>
+</body>
+</html>
