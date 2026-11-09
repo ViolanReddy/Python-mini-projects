@@ -9,6 +9,58 @@
 <body>
     <div class="container">
         <h1>Parking Lot Management</h1>
+
+        <p>Enter vehicle details below to calculate parking fees.</p>
+
+        {% if error %}
+            <p style="color:red;">{{ error }}</p>
+        {% endif %}
+
+        <form action="/calculate" method="POST">
+            <label for="registration">Vehicle Registration</label>
+            <input 
+                type="text"
+                id="registration"
+                name="registration"
+                placeholder="eg. CAA 667 767"
+                required>
+
+            <br><br>
+
+            <label for="parking_type">Parking Type:</label>
+            <select name="parking_type" id="parking_type">
+                <option value="">---Select Parking Type---</option>
+                <option value="lockup garage">Lockup Garage - R20/hour</option>
+                <option value="under cover">Under Cover - R15/hour</option>
+                <option value="open bay">Open Bay - R10/hour</option>
+            </select>
+
+            <br><br>
+
+            <label for="time_in">Time In:</label>
+
+            <input 
+                type="time"
+                id="time_in"
+                name="time_in"
+                required
+            >
+
+            <br><br>
+
+            <label for="time_out">Time Out:</label>
+
+            <input
+                type="time"
+                id="time_out"
+                name="time_out"
+                required
+            >
+
+            <br><br>
+
+            <button type="submit">Calculate Parking</button>
+        </form>
     </div>
 </body>
 </html>
