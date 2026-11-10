@@ -46,7 +46,7 @@ def calculate():
                 error = "Time-out must be different must Time-in"
             )
 
-        duration_hours = duration.total_seconds / 3600
+        duration_hours = duration.total_seconds() / 3600
 
         hourly_rate = parking_rates[parking_type]
 
@@ -55,12 +55,15 @@ def calculate():
         #Display parking slip
         return render_template(
             "result.html",
+            registration=registration,
             parking_type=parking_type,
             duration_hours=duration_hours,
             parking_cost=parking_cost
         )
 
-    except (ValueError, TypeError):
+    except (ValueError, TypeError) as e:
+        print("ERROR:", e)
+
         return render_template(
             "index.html",
             error = "Please enter valid parking information"
