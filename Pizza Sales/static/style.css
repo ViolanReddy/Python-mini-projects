@@ -1,0 +1,130 @@
+
+/* General page styling */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+}
+
+/* Navigation bar */
+.navbar {
+    background-color: #222222;
+    padding: 18px 8%;
+    color: white;
+}
+
+.navbar h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+/* Main container */
+.container {
+    width: 90%;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 10px 20px;
+}
+
+/* Main heading */
+h1 {
+    font-size: 42px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+/* Form labels */
+form > label {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Input fields */
+input[type="number"] {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #dddddd;
+    border-radius: 7px;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+/* Radio buttons */
+.radio-group {
+    margin: 10px 0 35px;
+}
+
+.radio-group label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    margin-left: 25px;
+    accent-color: #555555;
+    transform: scale(1.2);
+}
+
+/* Calculate button */
+button {
+    padding: 12px 24px;
+    background-color: #28c2ff;
+    border: 2px solid #dddddd;
+    border-radius: 7px;
+    font-size: 17px;
+    color: #333333;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #eeeeee;
+}
+
+/* Calculation results */
+.results {
+    margin-top: 30px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Error messages */
+.error {
+    color: #cc5555;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    .navbar {
+        padding: 16px 5%;
+    }
+
+    input[type="number"] {
+        width: 100%;
+    }
+}

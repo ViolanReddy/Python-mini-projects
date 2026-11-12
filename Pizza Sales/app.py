@@ -47,7 +47,7 @@ def home():
         return render_template(
             "index.html",
             amount_spent=f"R{amount_spent:.2f}",
-            change=f"{change:.2f}"
+            change=f"R{change:.2f}"
         )
 
     return render_template(

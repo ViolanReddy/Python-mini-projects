@@ -7,6 +7,78 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    
+    <nav>
+        <div class="navbar">
+            <h2>Ibiza Pizza</h2>
+        </div>
+    </nav>
+
+    <h1>Pizza Sales</h1>
+
+    <form action="/" method="POST">
+        <label for="cash">Cash Tendered:</label>
+
+        <input 
+            type="number"
+            id="cash"
+            name="cash"
+            min="0.01"
+            step="0.01"
+            placeholder="Enter cash amount"
+            required>
+
+        <label>Select a Pizza type</label>
+
+        <div class="radio-group">
+
+            <label>
+                <input 
+                    type="radio"
+                    name="pizza_type"
+                    value="veg"
+                    required
+                >
+                Veg
+            </label>
+
+            <label>
+                <input 
+                    type="radio"
+                    name="pizza_type"
+                    value="chicken"
+                    required
+                >
+                Chicken
+            </label>
+        </div>
+
+        <label for="quantity">Pizza quantity</label>
+
+        <input 
+            type="number"
+            id="quantity"
+            name="quantity"
+            min="1"
+            max="5"
+            step="1"
+            placeholder="Enter quantity (1-5)"
+            required
+        >
+
+        <button type="submit">Calculate</button>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if amount_spent is defined and change is defined %}
+            <div class="results">
+                <p>Amount spent: {{ amount_spent }}</p>
+
+                <p>Change: {{ change }}</p>
+            </div>
+        {% endif %}
+    </form>
+
 </body>
 </html>
