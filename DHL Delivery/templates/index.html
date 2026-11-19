@@ -7,8 +7,74 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>DHL Parcel Management System</h1>
+    <div class="dashboard-container">
 
-    <p>Welcome to the Cape Town branch Delivery Management System.</p>
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>DHL</h1>
+                <p>Parcel managements</p>
+            </div>
+
+            <nav>
+                <a href="/" class="active">Dashboard</a>
+                <a href="#">Customer</a>
+                <a href="#">Register Parcels</a>
+                <a href="#">Shipment</a>
+                <a href="#">Waybills</a>
+                <a href="#">Vehicles</a>
+                <a href="#">Drivers</a>
+                <a href="#">Mileage Reports</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>Cape Town Branch</p>
+                <small>Delivery Management System</small>
+            </div>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="topbar">
+
+                <div>
+                    <h2>Dashboard</h2>
+                    <p>Welcome to the DHL Cape Town Branch</p>
+                </div>
+
+                <div class="employee">
+                    <span>Employee Portal</span>
+                </div>
+            </header>
+
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <p>Total Parcels</p>
+                    <h2>{{ stats.total_parcels }}</h2>
+                    <small>Registered shipments</small>
+                </div>
+
+                <div class="stat-card">
+                    <p>Pending Deliveries</p>
+                    <h2>{{ stats.pending_deliveries }}</h2>
+                    <small>Awaiting dispatch</small>
+                </div>
+
+                <div class="stat-card">
+                    <p>Completed Deliveries</p>
+                    <h2>{{ stats.completed_deliveries }}</h2>
+                    <small>Successfully delivered</small>
+                </div>
+
+                <div class="stat-card">
+                    <p>Available Vehicles</p>
+                    <h2>{{ stats.vehicles_available }}</h2>
+                    <small>Ready for dispatch</small>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+        </main>
+    </div>
 </body>
 </html>
