@@ -42,11 +42,13 @@ def home():
             "status": "In Transit"
         }
     ]
+    
     return render_template(
         "index.html",
         stats=dashboard_stats,
         shipments=recent_shipments
     )
+
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -45,7 +45,8 @@
                     <span>Employee Portal</span>
                 </div>
             </header>
-
+            
+            <!-- Statistics -->
             <section class="stats-grid">
 
                 <div class="stat-card">
@@ -74,6 +75,71 @@
             </section>
 
             <!-- Quick Actions -->
+             <section class="quick-actions">
+                <h2>Quick Actions</h2>
+
+                <div class="action-button">
+
+                    <a href="#" class="action-button">
+                        + Register New Parcel
+                    </a>
+
+                    <a href="#" class="action-button secondary">
+                        + Register Customer
+                    </a>
+
+                    <a href="#" class="action-button secondary">
+                        View waybills
+                    </a>
+                </div>
+
+             </section>
+
+            <!-- Recent Shipments-->
+            <section class="shipments-section">
+
+                <div class="section-heading">
+                    <h2>Recent Shipments</h2>
+                    <span>Latest parcel activity</span>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Waybill Number</th>
+                                <th>Customer</th>
+                                <th>Destination</th>
+                                <th>Weight</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            {% for shipment in shipments %}
+                            <tr>
+                                <td>{{ shipment.Waybill }}</td>
+                                <td>{{ shipment.customer }}</td>
+                                <td>{{ shipment.destination }}</td>
+                                <td>{{ shipment.weight }}</td>
+
+                                <td>
+                                    <span class="status {{ shipment.status|lower|replace(' ', '-') }}">
+                                        {{ shipment.status }}
+                                    </span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+            <footer>
+                <p>DHL Parcel Management System | Cape Town Branch</p>
+            </footer>
         </main>
     </div>
 </body>
